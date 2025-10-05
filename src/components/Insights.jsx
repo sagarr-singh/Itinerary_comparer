@@ -55,7 +55,7 @@ export default function Insight({ itinerary }) {
     const durationDays = extractDuration(it);
     const totalActivities = extractActivities(it);
 
-    // 💰 Cost scoring
+    // Cost scoring
     if (cost > 0) {
       if (cost < 20000) {
         score += 20;
@@ -71,7 +71,7 @@ export default function Insight({ itinerary }) {
       rationale.push("Cost not available.");
     }
 
-    // 🕒 Duration scoring
+    // Duration scoring
     if (durationDays > 0) {
       if (durationDays >= 5 && durationDays <= 7) {
         score += 15;
@@ -87,7 +87,7 @@ export default function Insight({ itinerary }) {
       rationale.push("Duration not specified.");
     }
 
-    // 🎯 Activity scoring
+    // activity scoring
     if (totalActivities > 0) {
       const actBonus =
         totalActivities >= 5 ? 20 : totalActivities >= 3 ? 15 : 10;
