@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function JsonModal({ onAdd, onClose }) {
     const [jsonInput, setJsonInput] = useState("");
@@ -7,12 +8,9 @@ export default function JsonModal({ onAdd, onClose }) {
     const handleAddJson = () => {
         try {
             const parsed = JSON.parse(jsonInput);
-
-            // If wrapped in { itinerary: { ... } }, unwrap it
             const itineraryData = parsed.itinerary ? parsed.itinerary : parsed;
-
             onAdd(itineraryData);
-
+            toast.success("Itinerary added successfully!");
             setJsonInput("");
             onClose();
         } catch (err) {
@@ -24,6 +22,7 @@ export default function JsonModal({ onAdd, onClose }) {
 
     return (
         <div className="fixed inset-0 bg-opacity-70 flex items-center justify-center z-50 overflow-y-auto p-4 backdrop-blur-sm">
+            <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored" />
             <div className="relative bg-blue-300 text-gray-800 p-6 rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto border border-gray-300">
                 <button
                     onClick={onClose}

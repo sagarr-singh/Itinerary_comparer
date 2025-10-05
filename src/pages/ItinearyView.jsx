@@ -62,7 +62,6 @@ export default function ItinearyView() {
           <p className="text-gray-700 mb-4">👤 Traveler: {itinerary.traveler}</p>
         )}
 
-        {/* ✅ Show description if present */}
         {itinerary.description && (
           <div className="mb-4 p-3 bg-gray-50 rounded">
             <h3 className="text-lg font-semibold text-gray-800 mb-1">Description:</h3>
@@ -70,7 +69,6 @@ export default function ItinearyView() {
           </div>
         )}
 
-        {/* ✅ If structured days exist */}
         {itinerary.days?.length > 0 ? (
           itinerary.days.map((day, dayIndex) => (
             <div key={dayIndex} className="mb-6 border-b pb-4 last:border-b-0">
@@ -97,7 +95,6 @@ export default function ItinearyView() {
             </div>
           ))
         ) : (
-          /* ✅ If no structured days, show extracted raw text */
           itinerary.raw_text && (
             <div className="p-4 bg-gray-50 rounded mt-4 max-h-[500px] overflow-y-auto">
               <h3 className="text-lg font-semibold text-gray-800 mb-2">

@@ -23,7 +23,6 @@ export default function ItineraryUpload({ onAdd }) {
       const pdfText = await extractTextFromPDF(file);
       const lines = pdfText.split("\n").map((l) => l.trim()).filter(Boolean);
 
-      // Package name from filename or first line
       const package_name = file?.name?.replace(/\.[^/.]+$/, "") || lines[0] || "Extracted PDF Itinerary";
 
       // Duration: look for "X days" or "X nights"
@@ -42,7 +41,6 @@ export default function ItineraryUpload({ onAdd }) {
         }
       }
 
-      // Activities: detect day headings
       const activities = lines
         .filter((l) => /^Day\s*\d+/i.test(l))
         .map((l) => l.replace(/[:\-]/g, "").trim());
@@ -77,7 +75,6 @@ export default function ItineraryUpload({ onAdd }) {
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored" />
       <div className="grid md:grid-cols-3 gap-6 mb-8">
 
-        {/* JSON Button */}
         <div className="p-4 rounded-lg shadow text-center">
           <button
             className="w-full px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700"
@@ -87,7 +84,6 @@ export default function ItineraryUpload({ onAdd }) {
           </button>
         </div>
 
-        {/* Form Button */}
         <div className=" p-4 rounded-lg shadow text-center">
           <button
             className="w-full px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"

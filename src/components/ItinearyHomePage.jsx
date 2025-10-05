@@ -13,7 +13,7 @@ const imageList = [img1, img2, img3, img4];
 export default function ItineraryHomePage() {
     const navigate = useNavigate();
     const [expandedCards, setExpandedCards] = useState({});
-    const [sortBy, setSortBy] = useState("score"); // default sort
+    const [sortBy, setSortBy] = useState("score");
 
     const [itineraries, setItineraries] = useState(() => {
         const saved = JSON.parse(localStorage.getItem("itineraries"));

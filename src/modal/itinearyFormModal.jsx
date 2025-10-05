@@ -9,7 +9,7 @@ export default function ItineraryFormModal({ onAdd, onClose }) {
         description: "",
         estimated_cost: "",
         notes: "",
-        days: [], // Array of days
+        days: [], 
     });
     ``
     const [currentDay, setCurrentDay] = useState({
@@ -210,7 +210,6 @@ export default function ItineraryFormModal({ onAdd, onClose }) {
                         </div>
                     ))}
 
-                    {/* New Day Input */}
                     <div className="bg-blue-300 p-4 rounded border">
                         <h4 className="font-medium mb-2">Add New Day</h4>
                         <div className="grid md:grid-cols-2 gap-2 mb-2">
